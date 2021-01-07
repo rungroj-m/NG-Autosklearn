@@ -13,7 +13,9 @@
 
 ## Install
 
-pip install -r requirements.txt
+- pip install -r requirements.txt
+- git clone https://github.com/iwnsew/ngweight
+
 
 ## Usage
 
