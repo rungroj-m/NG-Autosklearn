@@ -15,7 +15,7 @@
 
 - pip install -r requirements.txt
 - git clone https://github.com/iwnsew/ngweight
-
+- python -m spacy download en_core_web_sm
 
 ## Usage
 
