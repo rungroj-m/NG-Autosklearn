@@ -1,5 +1,5 @@
-# ngram_classification
-
+# NG-Autosklearn
+NG-Autosklearn: A tool set of software document classification with Auto-sklearn and N-gram IDF
 
 ## Requirements
 
@@ -12,14 +12,13 @@
 - ngweight (https://github.com/iwnsew/ngweight)
 
 ## Install
-
-- pip install -r requirements.txt
-- git clone https://github.com/iwnsew/ngweight
-- python -m spacy download en_core_web_sm
+- Install all library included Auto-sklearn: pip install -r requirements.txt
+- Download Ngweight: git clone https://github.com/iwnsew/ngweight
+- Download english model for lemmatization: python -m spacy download en_core_web_md
 
 ## Usage
 
-See this file: https://github.com/rungroj-m/ngram_classification/blob/main/example/Usage.ipynb
+See this file: [example/usage.ipynb](example/usage.ipynb)
 
 
 ## Reference
