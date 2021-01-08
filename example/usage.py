@@ -16,7 +16,9 @@ df['clean_comment'] = df['clean_comment'].apply(prep.lemmatization)
 df['On-hold or not'] = df['On-hold or not'].map(dict(yes=1, no=0))
 
 # create n-gram using ngweight
-n_gram = prep.create_n_gram(df['clean_comment'],df['On-hold or not'],'../../../ngweight/','dataset/n_gram')
+ngweight_folder = '../../../ngweight/'
+n_gram = prep.create_n_gram(df['clean_comment'],df['On-hold or not'],ngweight_folder,'dataset/n_gram')
+
 df = df[['clean_comment','On-hold or not']]
 df.to_csv('dataset/clean_dataset.csv')
 
