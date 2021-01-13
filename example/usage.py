@@ -18,7 +18,7 @@ if __name__ == "__main__":
         df['On-hold or not'] = df['On-hold or not'].map(dict(yes=1, no=0))
 
         # create n-gram using ngweight
-        ngweight_folder = '../../ngweight/'
+        ngweight_folder = 'path_to_ngweight/'
         n_gram = prep.create_n_gram(df['clean_comment'],df['On-hold or not'],ngweight_folder,'dataset/n_gram')
 
         df = df[['clean_comment','On-hold or not']]
