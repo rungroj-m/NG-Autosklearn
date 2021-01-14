@@ -18,8 +18,9 @@ NG-Autosklearn: A tool set of software document classification with Auto-sklearn
 
 ## Usage
 
-See this file: [example/usage.ipynb](example/usage.ipynb)
-
+See this file: 
+- [example/usage.ipynb](example/usage.ipynb)
+- [example/usage.py](example/usage.py)
 
 ## Reference
 
