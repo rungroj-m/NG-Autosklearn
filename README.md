@@ -24,12 +24,12 @@ See this file:
 
 ## Reference
 
-- Shirakawa, Masumi, Takahiro Hara, and Shojiro Nishio. "N-gram idf: A global term weighting scheme based on information distance." proceedings of the 24th international conference on World Wide Web. 2015.
-- Feurer, Matthias, et al. "Auto-sklearn: efficient and robust automated machine learning." Automated Machine Learning. Springer, Cham, 2019. 113-134.
+- Shirakawa, Masumi, Takahiro Hara, and Shojiro Nishio. "N-gram idf: A global term weighting scheme based on information distance." proceedings of the 24th international conference on World Wide Web. 2015. https://dl.acm.org/doi/abs/10.1145/2736277.2741628
+- Feurer, Matthias, et al. "Auto-sklearn: efficient and robust automated machine learning." Automated Machine Learning. Springer, Cham, 2019. 113-134. http://papers.nips.cc/paper/5872-efficient-and-robust-automated-machine-learning.pdf
 
 ## Studies using this tool
 
-- R. Maipradit, H. Hata and K. Matsumoto, "Sentiment Classification Using N-Gram Inverse Document Frequency and Automated Machine Learning," in IEEE Software, vol. 36, no. 5, pp. 65-70, Sept.-Oct. 2019, doi: 10.1109/MS.2019.2919573.
-- R. Maipradit, C. Treude, H. Hata and K. Matsumoto, "Wait for it: identifying “On-Hold” self-admitted technical debt", Empir Software Eng 25, 3770–3798 (2020). https://doi.org/10.1007/s10664-020-09854-3
-- R. Maipradit et al., "Automated Identification of On-hold Self-admitted Technical Debt," 2020 IEEE 20th International Working Conference on Source Code Analysis and Manipulation (SCAM), Adelaide, Australia, 2020, pp. 54-64, doi: 10.1109/SCAM51674.2020.00011.
-- S. Wattanakriengkrai, R. Maipradit, H. Hata, M. Choetkiertikul, T. Sunetnanta and K. Matsumoto, "Identifying Design and Requirement Self-Admitted Technical Debt Using N-gram IDF," 2018 9th International Workshop on Empirical Software Engineering in Practice (IWESEP), Nara, Japan, 2018, pp. 7-12, doi: 10.1109/IWESEP.2018.00010.
+- Wattanakriengkrai, Supatsara, et al. "Identifying design and requirement self-admitted technical debt using n-gram idf." 2018 9th International Workshop on Empirical Software Engineering in Practice (IWESEP). IEEE, 2018. https://ieeexplore.ieee.org/abstract/document/8661216
+- Maipradit, Rungroj, Hideaki Hata, and Kenichi Matsumoto. "Sentiment Classification Using N-Gram Inverse Document Frequency and Automated Machine Learning." IEEE Software 36.5 (2019): 65-70. https://ieeexplore.ieee.org/abstract/document/8725481
+- Maipradit, Rungroj, et al. "Wait for it: identifying “On-Hold” self-admitted technical debt." Empirical Software Engineering 25.5 (2020): 3770-3798. https://doi.org/10.1007/s10664-020-09854-3
+- Maipradit, Rungroj, et al. "Automated Identification of On-hold Self-admitted Technical Debt." 2020 IEEE 20th International Working Conference on Source Code Analysis and Manipulation (SCAM). IEEE, 2020. https://ieeexplore.ieee.org/abstract/document/9252045
