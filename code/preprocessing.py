@@ -7,6 +7,12 @@
 
 
 from subprocess import call
+from spacy.lang.en import English
+from cleantext import clean
+
+import nltk
+from nltk.corpus import stopwords
+from nltk.tokenize import word_tokenize
 
 import re
 import spacy
@@ -17,7 +23,16 @@ import shutil
 class Preprocessing:
     def __init__(self):        
         self.nlp = spacy.load('en_core_web_md')
-        
+        self.nlp2 = English()
+        self.stop_words = set(stopwords.words('english'))
+    
+    def lemmatization2(self,comment):
+        token = self.nlp2(comment)
+        tokens_text = ['pron' if t.text == '-PRON-' else t.text.lower() for t in token]
+        comment_out = re.sub(r'[^A-Za-z0-9]+',' ', ' '.join(tokens_text), flags=re.IGNORECASE)
+        comment_out = re.sub(r'\s+',' ',comment_out)
+        return comment_out
+    
     def lemmatization(self,comment):
         lemma_comment = []
         doc = self.nlp(comment)
@@ -27,10 +42,33 @@ class Preprocessing:
                 lemma_word = "pron"
             lemma_comment.append(lemma_word.lower())
         comment_out = ' '.join(lemma_comment)
-        comment_out = re.sub(r'[^A-Za-z0-9]+','   ', comment_out, flags=re.IGNORECASE)
+        comment_out = re.sub(r'[^A-Za-z0-9]+',' ', comment_out, flags=re.IGNORECASE)
         comment_out = re.sub(r'\s+',' ',comment_out)
         return comment_out
     
+    def stop_word_removal(self, comment):
+        word_tokens = word_tokenize(comment)
+        filtered_sentence = [w for w in word_tokens if not w.lower() in self.stop_words]
+        return ' '.join(filtered_sentence)
+    
+    def clean_text(self, comment):
+        return clean(comment, 
+              fix_unicode=True,
+              to_ascii=True,
+              no_line_breaks=True,
+              no_urls=True, 
+              no_numbers=True, 
+              no_digits=True, 
+              no_currency_symbols=True, 
+              no_punct=True, 
+              replace_with_punct="", 
+              replace_with_url="URL", 
+              replace_with_number="NUMBER", 
+              replace_with_digit="", 
+              replace_with_currency_symbol="CUR",
+              lang='en'
+             )
+            
     def special_character_removal(self,comment):
         try:
             comment = re.sub(r'[^A-Za-z0-9.\']+',' ',comment)
@@ -67,11 +105,3 @@ class Preprocessing:
                 
         # delete file
         shutil.rmtree(temp_folder)
-        
-
-
-# In[ ]:
-
-
-
-

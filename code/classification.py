@@ -1,9 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[3]:
-
-
 from sklearn.model_selection import StratifiedKFold
 from sklearn.metrics import classification_report, confusion_matrix, roc_auc_score
 from sklearn.feature_extraction.text import CountVectorizer
@@ -26,8 +20,8 @@ class Classification:
     def vectorization(self, comment):
         lens = [len(x.split()) for x in self.n_grams]
         mn, mx = (min(lens), max(lens))
-        vect = CountVectorizer(vocabulary=self.n_grams, ngram_range=(mn, mx))
-        return vect.fit_transform(comment)
+        self.vect = CountVectorizer(vocabulary=self.n_grams, ngram_range=(mn, mx))
+        return self.vect.fit_transform(comment)
                                             
     def ten_fold(self,X,y):
         sss = StratifiedKFold(n_splits=10,shuffle=True,random_state=1)
@@ -58,10 +52,19 @@ class Classification:
             print("show_models",automl.show_models())
             print("sprint_statistics",automl.sprint_statistics())
             runner += 1
+            
+    def important_feature(self,X,y):
+        # for each class
+        feature_len = X.shape[1]
+        y_class = np.unique(y)
+        word_list = self.vect.get_feature_names()
 
+        result = dict()
+        for number in y_class:
+            interest_y = np.where(y == number)
+            interest_x = X[interest_y]
+            count_list = interest_x.sum(axis=0).tolist()[0]            
+            word_count = dict((k, v) for k, v in dict(zip(word_list, count_list)).items() if v > 2)
+            result[number] = dict(sorted(word_count.items(), key=lambda item: item[1], reverse = True))
 
-# In[ ]:
-
-
-
-
+        return result
