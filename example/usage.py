@@ -26,7 +26,7 @@ if __name__ == "__main__":
 
         # Example of ten-fold classification usage
         df = pd.read_csv('dataset/clean_dataset.csv')
-        classification = Classification()
+        classification = Classification('onhold')
 
         # load n-gram and use it as corpus
         classification.set_n_gram("dataset/n_gram")
