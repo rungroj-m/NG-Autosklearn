@@ -33,7 +33,7 @@ class Classification:
         self.vect = CountVectorizer(vocabulary=self.n_grams, ngram_range=(mn, mx))
         return self.vect.fit_transform(comment)
                                             
-    def ten_fold(self,X,y):
+    def ten_fold(self,X,y,max_memory=1024*32,max_time=60*60):
 #         sss = StratifiedKFold(n_splits=10,shuffle=True,random_state=1)
         sss = StratifiedShuffleSplit(n_splits=10,random_state=1)
         self.pp(str(sss))
@@ -44,7 +44,7 @@ class Classification:
             y_train, y_test = y[train_index], y[test_index]
             y_test_class = (np.unique(y_test))
             automl = autosklearn.classification.AutoSklearnClassifier(
-                memory_limit=1024*32, time_left_for_this_task = 1*60*60, metric=autosklearn.metrics.f1_weighted
+                memory_limit=max_memory, time_left_for_this_task = max_time, metric=autosklearn.metrics.f1_weighted
             )
 
             automl.fit(X_train.copy(), y_train.copy())
