@@ -84,7 +84,7 @@ class Preprocessing:
         for index in range(len(comments)):
             if labels[index] != 0:
                 temp.write(chr(0x02)+chr(0x03)+"\n")
-                temp.write(comments[index]+"\n")
+                temp.write(str(comments[index])+"\n")
         temp.close()
         
         call(ngweight_folder+"/waf",shell=True)
