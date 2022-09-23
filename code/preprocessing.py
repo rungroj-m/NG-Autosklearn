@@ -63,7 +63,8 @@ class Preprocessing:
               no_punct=True, 
               replace_with_punct="", 
               replace_with_url="URL", 
-              replace_with_number="NUMBER", 
+#               replace_with_number="NUMBER", 
+              replace_with_number=" ", 
               replace_with_digit="", 
               replace_with_currency_symbol="CUR",
               lang='en'
@@ -84,7 +85,7 @@ class Preprocessing:
         for index in range(len(comments)):
             if labels[index] != 0:
                 temp.write(chr(0x02)+chr(0x03)+"\n")
-                temp.write(comments[index]+"\n")
+                temp.write(str(comments[index])+"\n")
         temp.close()
         
         call(ngweight_folder+"/waf",shell=True)
